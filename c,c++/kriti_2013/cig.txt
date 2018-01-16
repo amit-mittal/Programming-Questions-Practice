@@ -1,0 +1,25 @@
+Guru bhai, a 4th yearite Biotechnology B.Tech has completed his BTP Project. He has developed a technology such that out of k>1 butts, he can roll out a new cigarette. Now for his BTP presentation, he wants to find out the maximum number of cigarettes he can have from the initial n cigarettes. But, Guru bhai being weak in mathematics, now it is your responsibility to help Guru bhai to find out the maximum number of cigarettes that he can obtain from the initial given sample?
+
+Input
+The first line of the input file contains an integer, T, denoting the number of test cases in the given input file. Then T lines follow, each line containing two space-separated integers giving the values of n and k (k<=n).
+
+Output
+For each line of input, output one integer number on a separate line giving the maximum number of cigarettes that Guru bhai can have. 
+
+Example
+3
+4 3
+10 3
+100 5
+
+Output
+5
+14
+124
+
+Constraints
+T<=100
+2<=n<10^9
+1<k<=n
+Time limit: 1 second
+Memory limit: 256 megabytes

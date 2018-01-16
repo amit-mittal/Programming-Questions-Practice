@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	int test,a,b;
+	
+	scanf("%d",&test);
+	
+	while(test--)
+	{
+		scanf("%d %d",&a,&b);
+		val=pow(2,a);
+		
+		ans=b%(int)val;
+	}
+	
+	return 0;
+}

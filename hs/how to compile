@@ -1,0 +1,3 @@
+to compile haskell file ghc file_name.hs
+and then to compile it write ./file_name
+save haskell file as .hs

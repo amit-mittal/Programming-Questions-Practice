@@ -1,0 +1,8 @@
+use mpz_class a=1,b=1; //like this we can use any no. of variables which are very big large no.s
+
+header file
+#include "gmpxx.h"
+
+and to run  g++ mycxxprog.cc -lgmpxx -lgmp
+
+we can only apply operations of that library like power so we have to use var_name.get_mpz_t()

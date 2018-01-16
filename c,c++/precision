@@ -1,0 +1,3 @@
+to in crease your precision of decimals, use long double. And while inputing write printf("%21.18Lf",s)
+
+here 18 represents no of integers after decimal and 21 before it.

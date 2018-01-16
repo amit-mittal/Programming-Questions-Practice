@@ -1,0 +1,16 @@
+to see how much time the program has taken
+
+#include<ctime>
+
+int main()
+{
+double dif;
+time_t start,end;
+
+time(&start);
+------
+------
+time(&end);
+dif=difftime(end,start);//gives difference b/w the time
+
+}

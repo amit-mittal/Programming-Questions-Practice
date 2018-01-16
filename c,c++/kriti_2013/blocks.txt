@@ -1,0 +1,32 @@
+PROBLEM NAME: SARIYA :P
+
+IIT Guwahati has decided to construct a new hostel as it will be organizing the next Inter IIT. For the construction of the hostel, contractor needs one iron rod having minimum height whose ends have a specific color. But, it may happen that the set of rods the contractor has, do not contain that particular type of rod. So, he is using some adhesive to paste the iron rods but, the joint is strong only if the rods are joined by the ends having same color. 
+
+So, you are given a set of vertical iron rods of heights hi and whose top and bottom faces are colored with colors ai and bi. Also all dimensions except height are same for all iron rods. You can join two iron rods by joining their faces having same color.
+
+You are to construct an iron rod whose faces are of color A and B, if many such iron rods can be formed then construct the one with minimum length.
+
+We will denote colors with positive integers.
+Each iron rod is denoted by three integers ai, hi, bi. ai and bi are colors of top and bottom faces. hi is its height.
+
+Input
+First line contains three integers N, A, B
+N : number of iron rods
+A,B : color of faces
+Next N lines contain three integer each ai, bi, hi as defined in problem statement. A and B are 2 disinct integers.
+(1 <= N, ai, bi, A, B <= 100000)
+(1 <= hi <= 1000000)
+
+Output
+If it is possible to form the iron rod with colors A, B then output the minimum length possible for iron rod. If it is not possible the output -1.
+
+Sample Input
+3 1 5
+1 3 2
+1 3 1
+5 3 1
+
+Sample Output
+2
+                
+Timelimit: 	3 sec

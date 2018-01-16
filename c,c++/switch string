@@ -1,0 +1,1 @@
+//we cant use string in switch so make 2 parallel arrays. onee sotring the months and other just woth the same location storing the days in it or an other statements which is useful to deal with it which can then be used in switch as it would be integer	

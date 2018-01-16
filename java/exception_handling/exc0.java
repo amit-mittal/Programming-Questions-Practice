@@ -1,0 +1,20 @@
+class Exc0
+{
+	public static void main(String args[])
+	{
+		int d=0;
+		try
+		{
+			int val=42/d;
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println("hello in catch block");
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		
+		System.out.println("Out of catch block");
+	}
+}

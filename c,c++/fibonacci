@@ -1,0 +1,7 @@
+2 ways to find fibonacci very fast
+
+1. matrix method- combine it with squaring method to compute power to make it faster
+
+2.bernet's formula
+
+Also fibonaci mod p always repeats after a fixed interval given by picano's number

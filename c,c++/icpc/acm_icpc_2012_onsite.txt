@@ -1,0 +1,188 @@
+Problem A: Pair socks
+You have N socks in your cupboard. The color of each sock can either be red, green, blue, or white. Can you form complete pairs from these socks?
+Input (STDIN):
+The first line contains the number of test cases T. The next T lines contain a string c having N characters. The ith character of the string is either 'R', 'G', 'B' or 'W', denoting that the ith sock has color red, green, blue, or white respectively. There is no blank line between test cases. 
+Output (STDOUT):
+For each test case, output "YES" if all socks can be grouped in pairs, or "NO" otherwise. 
+Constraints:
+1 <= T <= 1000
+The string c contains at most 50 characters.
+Each character of c is either 'R', 'G', 'B' or 'W'.
+Sample Input:
+2
+RGGGRG
+RGBGRW
+Sample Output:
+YES
+NO
+
+Explanation:
+For the first test case, RGGGRG implies that you have 2 red and 4 green socks, with which we can form 1 pair of red and 2 pairs of green socks.
+For the second test case, RGBR implies that we have 2 red, 1 green and 1 blue socks. With this, we can form 1 pair of red socks, but we will then be left with 1 green and 1 blue socks which can't be used to form a pair. 
+
+Time limit : 1s
+Memory limit : 32MB
+
+
+
+
+_____________________________________________________________________________
+
+Problem B: Sticks
+You have N sticks - the length of the ith stick being L[i]. You also have M 3-dimensional boxes - the length, breadth and height of the jth box being A[j], B[j] and C[j]. What is the maximum number of sticks which can fit in the boxes? A stick can be fit in a box if it can be placed within it without bending or cutting it. A box can hold any number of fitting sicks (assume that the sticks do not intersect each other).
+Input (STDIN):
+The first line contains the number of test cases T. T test cases follow.
+For each test case, the first line contains integers N and M on the first line. The next N lines contain the lengths of each stick, and the M lines after that contain the dimensions of each box denoted by 3 space-separated integers.
+There is a blank line after each test case.
+
+Output (STDOUT):
+For each test case, output a single integer which is the number of sticks which can fit in the boxes.
+Constraints:
+1 <= T <= 10
+1 <= N <= 50,000
+1 <= M <= 50,000
+1 <= L[i] <= 100,000
+1 <= A[i],B[i],C[i] <= 30,000
+Sample Input:
+2
+4 2
+1
+8
+4
+2
+1 2 2
+2 3 2
+
+1 1
+12
+6 8 9
+Sample Output:
+3
+1
+
+Explanation:
+For the first test case, the sticks of length 1 and 2 can fit in either of the 2 boxes, while the stick of length 4 can only fit in the second box.
+For the second test case, the stick of length 12 can fix in the box of dimensions 6 X 8 X 9.
+Time limit : 1s
+Memory limit : 32MB
+
+
+_________________________________________________________________________________
+
+
+Problem C: Sum Range
+You are given N numbers a[1..N] and 2 other integers L and H. Count the number of tuples (i,j,k) satisfying i < j < k and L <= a[i] + a[j] + a[k] <= H.
+Input (STDIN):
+The first line contains the number of test cases T. T test cases follow.
+The first line of each test case contains the numbers N, L and H. The next line contains N space-separated integers a[1]..a[N].
+There is no blank line between test cases.
+Output (STDOUT):
+Output T lines, each containing the answer for the corresponding test case.
+Constraints:
+1 <= T <= 100
+1 <= N <= 1000
+1 <= L <= H <= 1000000
+1 <= a[i] <= 1000000 
+Sample Input:
+2
+4 11 14
+1 2 4 8
+5 5 10
+3 4 1 1 4
+Sample Output:
+3
+9
+Explanation:
+For the first test case, the triplets of indices (1, 2, 4), (1, 3, 4) and (2, 3, 4) have their corresponding sums as 11, 13 and 14, which fall in the desired range.
+Time limit : 5s
+Memory limit : 32MB
+
+
+
+___________________________________________________________________________________________________
+
+
+
+
+Problem D: Team Decision
+It is the ICPC season again, and one of the crucial things your team has to decide is which regional (Amrita or Kanpur) to go to. In order to maximize your team's chances of success, your team should go to the regional that none of your rivals are going to. In fact, every team has this same objective. 
+
+Now, assuming that each team goes to exactly one regional and knowing the set of rivals for each team, how many ways are there of assigning teams to regionals such that the above objective is satisfied? 
+
+The rivalry relation is not symmetric. That is, team A may think of team B as its rival, but not vice versa. Also, two assignments of teams (to Amrita and Kanpur) are considered different if the set of teams assigned to either regional differs (between the assignments). Since the number of ways can go too large, your answer should be output modulo 10^9 + 7. 
+Input (STDIN):
+The first line gives the number of test-cases, T.
+Each test case begins with N, the number of teams registered. Teams are numbered 0 to N-1.
+The next N lines describe the rivalry relation: the i'th of these lines begins with an integer K (between 0 and N-1), denoting the number of rivals of the i'th team. This is followed by K integers, denoting the rivals of the i'th team.
+There is a blank line after each test case.
+Output (STDOUT):
+For each test case, output the possible number of assignments to the two regionals such that no team goes to the same regional as any of its rivals. Don't forget to output your answer modulo 10^9 + 7.
+Constraints:
+T <= 10
+N <= 20,000
+Total number of rivalries among all teams <= 100,000
+Sample Input:
+2
+4
+2 1 3
+2 0 2
+2 1 3
+2 0 2
+
+2
+1 1
+0
+Sample Output:
+2
+2
+Explanation:
+In the first test case, teams 0 & 2 think that 1 & 3 are their rivals, and vice versa. So, the 2 possibilities are {0, 2} going to Amrita and {1, 3} going to Kanpur, or {0, 2} going to Kanpur and {1, 3} going to Amrita.
+
+Time limit : 3s
+Memory limit : 64MB
+
+
+________________________________________________________
+
+
+
+Problem E: Sequence
+Given a sequence S of '0' and '1' of length N, a subsequence of S is obtained by omitting some elements of S without changing the order of the remaining elements of S.
+
+Given a subarray of a sequence S starting from some position 'a' and ending at some position 'b' (1 <= a <= b <= N), both inclusive, denoted by S(a,b), you have report the length of longest non-decreasing subsequence of S(a,b). By non-decreasing, we mean that a '0' never appears after a '1' in the subsequence.
+Input (STDIN):
+The first line contains T, the number of test cases. Then T test case follow, each test case being in the following format.
+The first line contains N, the length of sequence S. The next line contains a string of 0's and 1's of length exactly N. The next line contains Q, which means that you have to answer Q queries. The next Q lines contain a pair of integers a,b (1 <= a <= b <= N), meaning that you have to report the length of longest non decreasing subsequence of S(a,b).
+There is no blank line between test cases.
+Output (STDOUT):
+Output Q lines per test case, which is the answer for each query. Do not print a blank line between test cases.
+Constraints:
+1 <= T <= 10
+1 <= N <= 100,000
+1 <= Q <= 100,000
+Sample Input:
+1
+13
+0011101001110
+6
+1 13
+4 13
+1 9
+6 9
+3 3
+6 10
+
+Sample Output:
+9
+6
+6
+3
+1
+4
+
+Explanation:
+In the first query, the longest subsequence is formed by picking 1st,2nd,3rd,4th,5th,7th,10th,11th,12th digits of the sequence.
+In the second query, you can pick the 6th, 8th, 9th, 10th, 11th and 12th digits.
+
+Time limit : 3s
+Memory limit : 64MB

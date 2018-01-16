@@ -1,0 +1,43 @@
+*take code of Sieve_of_Eratosthenes
+http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+	for(i=2;i*i<MAX_LIM;++i){
+		if(a[i] == 0){
+			val = i*i;
+			while(val<MAX_LIM){
+				a[val]=1;
+				val+=i;
+			}
+		}
+	}
+
+	for(i=2;i<MAX_LIM;++i){
+		if(a[i]==0)
+			printf("%d\n", i);
+	}
+
+*prime factorization
+
+*power by squaring
+
+*gcd
+
+*matrix multiplication
+
+*path tracing if hurdles in between problem
+
+*notes to solve linear recursion in logn by matrix method
+
+*sort 2d array according to 1column
+
+*depth first search
+
+*take amritapuri 1st question for loop kind of code - to get maximum profit in matrix if move just left or right
+
+*binary search to find closest value to a number
+
+*Attention: the program should clear the output buffer after printing each line. It can be done using fflush(stdout) command or by setting the proper type of buffering at the beginning of the execution - setlinebuf(stdout). Failure to flush the output buffer will result in Time Limit Exceeded verdict.
+
+*if a point lies inside a polygon or a figure- point vs edge test code
+http://alienryderflex.com/polygon/
+http://stackoverflow.com/questions/2049582/how-to-determine-a-point-in-a-triangle

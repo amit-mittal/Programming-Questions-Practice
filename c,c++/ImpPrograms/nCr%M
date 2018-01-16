@@ -1,0 +1,83 @@
+http://discuss.codechef.com/questions/3869/best-known-algos-for-calculating-ncr-m
+Best known algos for calculating nCr % M
+
+I encountered nCr for the first time on GCJ 08, Round 3 Problem D .. link to analysis.
+
+The first key idea is that of Lucas' Theorem.
+
+Lucas's Theorem reduces nCr % M to
+
+(n0Cr0 % M) (n1Cr1 % M) ... (nkCrk % M)
+
+Where,
+
+(nknk-1...n0) is the base M representation of n
+(rkrk-1...r0) is the base M representation of r
+
+    Note, if any of the above terms is zero because ri > ni or any other degeneracy, then the binomial coefficient nCr % M = 0
+
+This means that any of the terms in the expansion of niCri is not divisible by M. But this is only half the job done.
+
+Now you have to calculate nCr % M (ignoring subscripts for brevity) for some 0 ≤ r ≤ n < M
+
+There are no ways around it, but to calculate
+
+[ n! / ( r! (n-r)! ) ] % M
+
+Without loss of generality, we can assume r ≤ n-r
+
+Remember, you can always do the Obvious. Calculate the binomial and then take a modulo. This is mostly not possible because the binomial will be too large to fit into either int or long long int (and Big Int will be too slow)
+
+This can then be simplified by using some clever ideas from Modular Arithmetic.
+
+    If A*B % M = 1, A and B are modular multiplicative inverses of each other.
+
+For brevity, we say B % M = A-1 % M
+
+It is not always possible to calculate modular multiplicative inverses. If A and M are not co-prime, finding a B will not be possible.
+For example, A = 2, M = 4. You can never find a number B such that 2*B % 4 = 1
+
+Most problems give us a prime M. This means calculating B is always possible for any A < M.
+For other problems, look at the decomposition of M. In the codesprint problem you mentioned
+
+142857 = 33 * 11 * 13 * 37
+
+You can find the result of nCr % m for each m = 27, 11, 13, 37. Once you have the answers, you can reconstruct the answer modulo 142857 using Chinese Remainder Theorem. These answers can be found by Naive Methods since, m is small.
+
+I have also seen problems where M is a product of large primes, but square free. In these cases, you can calculate the answers modulo the primes that M is composed of using modular inverses (a little more about that below), and reconstruct the answer using CRT.
+
+I am yet to see a problem where M is neither, but if it is. I do not know if there is a way to calculate binomial coefficients generally (since you cannot calculate modular inverses, and neither can you brote force). I can dream of a problem where there are powers of small primes, but square-free larger ones for a Number Theory extravaganza.
+
+There is one other way to calculate nCr for any M which is small enough (say M ≤ 5000) or small n and r (say r ≤ n ≤ 5000) by using the following recursion with memoization
+
+nCr = n-1Cr + n-1Cr-1
+
+Since there are no divisions involved (no multiplications too) the answer is easy and precise to calculate even if the actual binomials would be very large.
+
+So, back to calculating
+
+[ n! / ( r! (n-r)! ) ] % M, you can convert it to
+
+n * (n-1) ... * (n-r+1) * r-1 * (r-1)-1 ... * 1
+
+Of course, each product is maintained modulo M.
+
+This may be fast enough for problems where M is large and r is small.
+
+But sometimes, n and r can be very large. Fortunately, such problems always have a small enough M :D
+
+The trick is, you pre-calculate factorials, modulo M and pre-calculate inverse factorials, modulo M.
+
+fact[n] = n * fact[n-1] % M
+ifact[n] = modular_inverse(n) * ifact[n-1] % M
+
+Modular Multiplicative Inverse for a prime M is in fact very simple. From Fermat's Little Theorem
+
+AM-1 % M = 1
+
+Hence, A * AM-2 % M = 1
+Or in other words,
+
+A-1 % M = AM-2 % M, which is easy (and fast) to find using repeated squaring.
+
+There is one last link I wish to paste to make this complete. Modular inverses can also be found using the Extended Euclid's Algorithm. I have only had to use it once or twice among all the problems I ever solved.

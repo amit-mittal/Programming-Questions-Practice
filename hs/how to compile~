@@ -1,0 +1,3 @@
+to compile haskell file ghc helloworld.hs
+and then to compile it write ./a.out
+save haskell file as .hs

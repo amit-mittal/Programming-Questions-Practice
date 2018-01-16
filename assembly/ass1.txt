@@ -1,0 +1,97 @@
+DUE Date:  Monday 7 January 2013
+
+This is a  program to find the largest element in an array. There are errors. Correct them. You should use gdb to get to the problems quickly. All programs use the GNU AS syntax.
+
+.section .data
+d: 
+.long 3,67,34,222,45,75,54,34,44,33,22,11,66
+.section .text
+.globl _start
+_start:
+movl $0, %edi 
+movl d(,%edi,4), %eax 
+movl %eax, %ebx 
+start_loop: 
+cmpl $0, %eax 
+jle loop_exit
+incl %edi 
+movl d(,%edi,4), %eax
+cmpl %ebx, %eax 
+je start_loop 
+movl %eax, %ebx 
+jmp start_loop 
+loop_exit:
+#call printf to print what is in ebx
+
+
+
+This is a program to convert a number to a string of digits.
+
+There are a number of errors. Fix the errors.
+
+integer-to-string.s:
+ 
+.equ ST_VALUE, 8
+.equ ST_BUFFER, 12
+.globl integer2string
+.type integer2string, @function
+integer2string:
+#Normal function beginning 
+# don�t change the next two stmnts.
+pushl %ebp
+movl %esp, %ebp
+movl $0, %ecx
+movl ST_VALUE(%ebp), %eax
+movl $10, %edi
+loop:
+movl $0, %edx
+divl %edi
+addl $�0�, %edx
+pushl %edx
+incl %ecx
+cmpl $0, %eax
+jne endloop
+jmp loop
+endloop:
+movl ST_BUFFER(%ebp), %edx
+cloop:
+popl %eax
+movb %al, (%edx)
+decl %ecx
+incl %edx
+cmpl $0, %ecx
+jne ecloop
+jmp cloop
+ecloop:
+movl %ebp, %esp
+popl %ebp
+ret
+
+To show this used in a full program, use the following code, along with the count_chars and
+write_newline functions written about in previous chapters. The code should be in a file called
+conversion-program.s.
+
+
+.section .data
+#This is where it will be stored
+tmp_buffer:
+.ascii "\0\0\0\0\0\0\0\0\0\0\0"
+.section .text
+.globl _start
+_start:
+movl %esp, %ebp
+pushl $tmp_buffer
+pushl $824
+call integer2string
+addl $8, %esp
+#Now call printf appropriately to print the string.
+
+To build the program, issue the following commands:
+as integer-to-string.s -o integer-to-number.o
+as conversion-program.s -o conversion-program.o
+ld integer-to-number.o conversion-program.o -o conversion-program
+To run just type ./conversion-program and the output should say 824.
+
+
+
+

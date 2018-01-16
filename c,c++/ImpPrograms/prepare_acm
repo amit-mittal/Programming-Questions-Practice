@@ -1,0 +1,127 @@
+It just so happens that I have a copy in my email of the chat between Nikhil and Ajay. I'm not gonna post the whole thing here, but just a bunch of pointers given. Interestingly, I hadn't read it before, and before searching in my email, I only had a few points from memory: ones that all of us took to heart. In this answer, I'll give an overview of all the things that were discussed (in order of being discussed), and then describe the points that were taken to heart and acted upon (what I initially had thought to put in my answer).
+
+Context: This chat happened around a month after the IIITH team and some other programming greats held a Programming Camp (Programming Camp Syllabus - Google Drive, the topics that were discussed). Our college however had started by the time of this camp, and we hadn't attended it, having come to know of it only after start of term. It was at this stage, while we felt we were at a loss in terms of preparation, that Nikhil sought out Ajay's direct pointers.
+
+
+Rudradev Basak is pretty good. If you guys work hard, you can make it. (Paraphrased slightly).
+
+[This was at the point when Rudy had a few months of TopCoder experience, mostly through free time during summer project and having the TCO tournament going on. By August 2010, his Algorithm rating had reached a peak of 1900+, which is considered pretty good for an Indian.]
+
+Let me tell you, hearing words of faith and respect from the people you admire deeply can have an immensely motivating effect. "If Ajay Somani believes we can do it, then we must definitely make sure that we perform well!"
+
+
+
+"You need to have excellent analytic skills. You need to practice geometry and graph. Especially geometry once you qualify for world finals".
+
+We're still on the topic of math skills (Rudy was IMO, Anshuman was RMO and used to come up with really nice solutions). We know we're fairly good at math ourselves, with combinatorics being our strong point. The main point to be taken away from here is, "most teams run away from geometry", and that we should make it a point not to.
+
+
+
+"Solve all problems on project euler":
+Said in relation to Number Theory, but is definitely useful for acquiring a strong foundation in most math topics.
+
+
+You need to concentrate on Indian Regionals first:
+Put lots of effort in
+1. DP
+2. Graph
+3. Math
+
+
+TopCoder practice:
+
+This part may as well be quoted verbatim.
+
+    [Ajay:]...
+     at TC, you can probably solve all problems.
+      I suggest at present that you solve problems individually
+     me: That would be amazing :)
+     Ajay: at around 25 days before the regional
+      start solving as a team.
+      You can decide upon your team-strategy around that time.
+     me: Ok- that was what I was gonna ask you.
+     Ajay: Now for individual practice.
+     you need to cover all problems on TC.
+     me: Hmm
+     Ajay: lets take SRM 300 to 480.
+     me: Div 1000s too ?
+     Ajay: Yes, they are important.!
+      dividing by 3
+     me: lol
+     Ajay: we get 60 SRM per person.
+      Only solve Div 1 500 and div 1 1000 ptr
+      leave the rest of the problems.
+     me: right
+    Ajay: Never get used to easy problems
+      the habit is tough to break later :)
+      [citing my own example]
+     me: :D
+      Great!
+     Ajay: Now as for the problems
+      its really important to get
+      accepted in practice room
+      No matter how painful the coding is :).
+      Its very likely that you wont get solution to many problems
+      after serious attempt.
+      Then first read the editorial
+    me: (Oh thats where we die really- we 3 are lazy coders)
+     Ajay: editorial also links to solutions of different authors
+      read them
+      if editorial lists some new theorem
+      that you didnt know
+      read up on it
+      soon you'll start realizing that problems are becoming easier :)
+      doing 1 SRM per day
+      and counting vacations etc
+      I suppose you'll do this in about 75 days.
+    me: Hmm
+     Ajay: If all 3 of you do it.
+     me: & do we do any Spoj at all ?
+     Ajay: Coding is important
+      in the finals
+      most problems require lot of code.
+      so by writing more code, you'll get into habit of writing quickly.
+      SPOJ quality has gone down the gutter recently.
+      Old problems were good.
+
+Also, SGU and Timus were recommended.
+
+
+Pick contests where solutions are available:
+Take a contest which you either have all the solutions, or where you can ask for all the solutions from someone. It is not enough to pick a contest a day and do 5 out of 10 problems. You need to then go back, find out the solutions to the other 5, and code them up.
+
+
+Talk then moves on to Data Structures.
+Segment Tree
+BIT
+Trie
+Range Min/Max Query (TopCoder Tutorial)
+Disjoint Set Data Structure.
+
+and closes with our TopCoder handles...
+
+    Ajay: Btw
+      One more thing
+      what are topcoder id's of others in your team?
+    me: pradeep is naiveAlgorist
+      & I am nikhil-garg
+      but you would only get disaapointment there!
+      Only now we are starting to practice regularly :D
+    Ajay: Thats allright.
+      Everyone starts low :)
+      I was green for many matches.
+    me: You ?
+     Ajay: venkateshb was gray for many matches.
+      we all got to red.
+
+
+"we all got to red", and there he goes again, inspiring us :)
+
+
+Summary:
+While the above was the overall extensive set of pointers discussed, I'd like to stress some of the points that really stuck with us.
+
+    Confidence in us: When someone you admire gives you a vote of confidence, anything short of a good performance is letting that person down, and gives you a severe sense of disappointment. Having Ajay's faith in us proved to be a deep motivator.
+    TopCoder Div1 500s: The advice regarding these is what brought about the creation of our TopCoder Stats spreadsheet, which was super useful in tracking our progress over two whole years. By and large we were unable to solve Div1 1000s, but we'd hack away at them occasionally.
+    Solutions + coding is important: This is the area where we put TopCoder above spoj. Although TC allows for suboptimal solutions to pass, the fact that the Editorials are available means that you have the capacity to improve. Also, reading the solution is not good enough. Going back and coding up what you've read is also important.
+    Geometry is important: This advice made us work through our geometry code and library with the effect that (a) we weren't scared of geometry any more, and (b) in some sense, we distinguished ourselves with this trait in the Indian scene. I remember the 2010 Regional had us solve the geometry problem within 40 minutes, and after the contest, having other teams ask us how we were able to attempt geometry in the first hour :)

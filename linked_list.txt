@@ -1,0 +1,16 @@
+when we use just a single pointer in linked list, then what we are actually sending a memory location named start. So, whenever we edit anything in that memory pointer or data that would be reflected in whole program as we are directly accessing that memory location.
+
+But, when we change start in that function then no change would happen in whole program bcoz we will just give start name to some random location according to that function so, that start in main function would remain unchanged as though same memory was sent to function so, it can change values in the memory but, while naming the memory that would be local as both function just have same memory, nothing else.
+
+Take it like there is a start in main function and there is memory location named 'x'. x=start in main
+when we make a function add(struct node *start) then the same memory location 'x' is named 'start' in that function too but, both start are diff, they are actually at same level so, we cant chnage that start value in main from that start.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+But, when we send start's address then we are sending address of the pointer that is pointing towards the memory location 'x'. So, when we change that *start in function then value is reflected in main
+
+Consider 'x'=start in main
+add(&start) in main
+we send add(**start)
+we are actually sending address of that var start which stores starting memory location.
+so, there is x=**start in function and *start points to start in main. So, changes in *start would be reflected in the main

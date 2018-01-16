@@ -1,0 +1,3 @@
+to shorten the program use #define type things
+like for FOR loop we can use #define F(i,n) for(i=1;i<=n;++i)
+for scanf #define R(x) scanf("%d",&x)

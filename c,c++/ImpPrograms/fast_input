@@ -1,0 +1,11 @@
+while using scanf, if you know that the next input is in next line then always write scanf("%d\n",&test);
+
+As such even scanf is slow, use getchar()
+
+example:
+#define isdigit(c) (c >= '0' && c <='9')
+while(!isdigit(ch))ch = getchar();
+do {num = num*10 + ch-'0';ch=getchar();}while(isdigit(ch));
+arr[i][j] = num;
+}
+}

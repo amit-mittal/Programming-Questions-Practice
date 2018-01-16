@@ -1,0 +1,37 @@
+class exception
+{
+	public static void main(String args[])
+	{
+		int id;
+		int dept_id;
+		String name;
+	
+		try
+		{
+			id=Integer.parseInt(args[0]);
+			name=args[1];
+			dept_id=Integer.parseInt(args[2]);
+			
+			if(dept_id>5)
+				throw new DepartmentException();
+			else
+			{
+				System.out.println("Employee Id"+args[0]);
+				System.out.println("Employee Name"+args[1]);
+				System.out.println("Department Id"+args[2]);
+			}
+		}
+		catch(ArrayIndexOutOfBoundsException ae)
+		{
+			System.out.println("Only 3 arguments are allowed");
+		}
+		catch(NumberFormatException ne)
+		{
+			System.out.println("Incorrect Data");
+		}
+		catch(DepartmentException de)
+		{
+			System.out.println("Invalid data");
+		}
+	}
+}

@@ -1,0 +1,57 @@
+How it works
+I've tried to keep everything as simple as possible, while also making everything as fast as possible. I think that worked out reasonably well, but since everything has to go through GM it will never be as fast as the original GMP library.
+
+The DLL uses strings to represent numbers. I could have used ids or something similar, but that would have been a lot more difficult and it would also introduce memory leaks if you forgot to destroy one of the numbers. That's why I used strings.
+
+Numbers can be stored in several forms. The simplest form is simply decimal, like "1234" for 1234. Negative numbers use a minus sign, like "-1234". Using a plus sign is not allowed, GMP doesn't recognize those. GMP also recognizes other bases, like hexadecimal (with prefix "0x", e.g. "0xf4" = 244), binary (with prefix "0b", e.g. "0b10001101" = 141), octal (with prefix "0", e.g. "0273" = 187). This is how different bases are used in C/C++. You have to be careful with octal though, you should never use leading zeroes. If you want to use a negative number with a different base, the minus sign should come before the prefix (e.g. "-0x12", not "0x-12").
+
+So why is this relevant? Well, since GMP uses binary numbers internally, reading or writing hexadecimal, octal and binary numbers is a lot faster than reading or writing decimal numbers. For that reason all mathematical functions will return hexadecimal numbers. This means you will have to convert them to decimal again, so I've added some conversion functions to do that.
+
+Functions
+The functions aren't very hard to use, so I will just give a very brief explanation.
+
+Hints:
+
+    All mathematical functions return hexadecimal numbers, so use gmp_todec to convert them to decimal.
+    If the results of a calculation are wrong, make sure you are not accidentally passing reals instead of strings to the mathematical functions. All reals will be replaced by empty strings by GM, and empty strings are interpreted as 0 by GMP.
+
+
+
+gmp_real(a_string) - This function does exactly the same as real(), but it supports hexadecimal, octal and binary as well, so it can be used to convert the result of mathematical functions to reals. It doesn't support an exponential part though.
+gmp_string(a_real) - The same as string(), but better. string() has a very limited range because GM uses a 32-bit integer to store the intermediate result. This function doesn't have this limitation, it will work for any value between -8.9885e307 and 8.9885e307. The result is hexadecimal. This function should be used to convert reals to strings you can pass to the mathematical functions.
+gmp_tohex(a_string) - Converts a number (as a string) to hexadecimal. If the number is already hexadecimal, nothing happens. This function will also add the prefix "0x".
+gmp_todec(a_string) - Converts a number (as a string) to decimal. If the number is already decimal, nothing happens.
+
+gmp_add(a_string,b_string) - Calculates the sum of two numbers (as strings).
+gmp_sub(a_string,b_string) - Calculates the difference of two numbers (as strings).
+gmp_mul(a_string,b_string) - Calculates the product of two numbers (as strings).
+gmp_div(a_string,b_string) - Calculates the quotient of two numbers (as strings). The result is rounded towards zero, like 'div' in Game Maker.
+gmp_mod(a_string,b_string) - Calculates the remainder after division of two numbers (as strings). The result has the same sign as the first number, like 'mod' in Game Maker.
+gmp_neg(a_string) - Changes the sign of a number (positive becomes negative, negative becomes positive).
+gmp_abs(a_string) - Calculates the absolute value (modulus) of a number (negative becomes positive).
+
+gmp_pow(a_string,n_string) - Calculates a to the power of n. Make sure n is not too big since this would require too much memory.
+gmp_powmod(a_string,n_string,mod_string) - Calculates a to the power of n modulo mod.
+
+gmp_sqrt(a_string) - Calculates the square root of a number. The result is rounded towards zero.
+gmp_sqrtrem(a_string) - Calculates the remainder of the square root of a number. The result is the same as a-gmp_pow(gmp_sqrt(a),2). If you need both the square root and the remainder, it's probably faster to calculate it yourself to avoid calculating the square root twice.
+gmp_root(a_string,n_string) - Calculates the n-th root of a number. The result is rounded towards zero.
+gmp_rootrem(a_string,n_string) - Calculates the remainder of the n-th root of a number. See gmp_sqrtrem.
+
+gmp_compare(a_string,b_string) - Compares two numbers. If the return value is positive, a is greater than b. If the return value is negative, a is smaller than b. If the return value is zero, a equals b. This is actually very easy to use: a>=b becomes gmp_compare(a,b)>=0.
+gmp_abscompare(a_string,b_string) - Compares the absolute value of two numbers. See previous function.
+gmp_sign(a_string) - Returns the sign of a number, like sign() in GM. +1 means positive, -1 means negative, and 0 means zero.
+gmp_even(a_string) - Returns whether a number is even.
+gmp_odd(a_string) - Returns whether a number is odd.
+
+gmp_probab_prime(a_string,reps) - Returns whether a number is prime. 0 means the number is definitely prime, 1 means the number is probably prime, and 2 means the number is definitely composite (not prime). Increasing the value of reps will reduce the chance of a composite returning 'probably prime'. Usually 10 is a reasonable value.
+gmp_probab_nextprime(a_string) - Returns the first prime greater than the given number. The test is not 100% accurate, but the chance of the test being wrong is extremely small.
+gmp_gcd(a_string,b_string) - Calculates the greatest common divisor of two numbers.
+gmp_lcm(a_string,b_string) - Calculates the least common multiple of two numbers.
+gmp_factorial(n_string) - Calculates the factorial of n.
+gmp_fibonacci(n_string)- Calculates the n-th Fibonacci number.
+
+gmp_min(a_string,b_string) - Returns the lowest value of two numbers.
+gmp_max(a_string,b_string) - Returns the highest value of two numbers.
+
+That's it for now. Good luck! 
